@@ -124,16 +124,16 @@ Returns a JSON array of all notifications for user 1, including statuses.
 New notifications are written to MySQL and pushed to RabbitMQ.
 The background worker consumes tasks, simulates delivery (prints to console), and updates the notification status.
 If delivery fails, notifications are retried with exponential backoff (up to 3 attempts).
-📝 Assumptions
+#📝 Assumptions
 User records and authentication are managed outside this service.
 Email/SMS sending is simulated in code but can be easily swapped for integration with real services (see app/notifier.py).
 API endpoints are unauthenticated for demonstration purposes.
-💡 Possible Extensions
+#💡 Possible Extensions
 Integrate with real SMS/email APIs (e.g., Twilio, SendGrid).
 Add JWT authentication or user session tracking.
 Deploy the full app stack using Docker Compose for portability.
 Set up automated tests for all endpoints.
-👤 Author
+#👤 Author
 ANUSHKA VERMA
 [https://www.linkedin.com/in/anushka-verma-352b4b278/]
 
