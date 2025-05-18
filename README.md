@@ -33,26 +33,28 @@ This project is designed to demonstrate robust backend architecture, decoupled p
 ```bash
 git clone <YOUR_REPO_LINK_HERE>
 cd notification_service
+```
 
 ### 2. Python Environment Setup
-Create and activate a virtual environment:
+Create and activate a virtual environment
 
 ### Windows:
-BASH
+```bash
 
 python -m venv venv
 venv\Scripts\activate
+```
 Mac/Linux:
-BASH
+```bash
 
 python3 -m venv venv
 source venv/bin/activate
+```
 Install required libraries:
-
-BASH
+```bash
 
 pip install -r requirements.txt
-
+```
 
 ## 3. Environment Configuration
 Create a .env file in the project root and add:
@@ -68,52 +70,52 @@ RABBITMQ_HOST=localhost
 ## 4. MySQL Database Initialization
 In MySQL Workbench or CLI, run:
 
-SQL
+```SQL
 
 CREATE DATABASE notification_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 CREATE USER 'notification_user'@'%' IDENTIFIED BY 'notification_password';
 GRANT ALL PRIVILEGES ON notification_db.* TO 'notification_user'@'%';
 FLUSH PRIVILEGES;
+```
 5. Start RabbitMQ (via Docker)
 Make sure Docker Desktop is running, then execute:
-
-BASH
+```bash
 
 docker run -d --hostname rabbit --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 RabbitMQ Management Console: http://localhost:15672 (username/password: guest/guest)
-
+```
 ### 6. Set Up the Database Table
-BASH
+```bash
 
 python
 >>> from app.database import create_db
 >>> create_db()
 >>> exit()
+```
 
 ### 7. Run the Worker and API
 Terminal 1 (Worker):
-
-BASH
-
+```bash
 python worker.py
+```
 Terminal 2 (API):
-
-BASH
-
+```
 uvicorn app.main:app --reload
+```
 Visit http://127.0.0.1:8000/docs for interactive API documentation and testing.
 
 📚 Example Usage
 ➕ Sending a Notification
 POST /notifications
 
-JSON
+```json
 
 {
   "user_id": 1,
   "notification_type": "sms",     // "email", "sms", or "inapp"
   "content": "Your OTP is 123456."
 }
+```
 🔍 Fetching User Notifications
 GET /users/1/notifications
 Returns a JSON array of all notifications for user 1, including statuses.
