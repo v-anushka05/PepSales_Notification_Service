@@ -1,4 +1,8 @@
+![Sending notifications](2.png)
 ![The model is working](1.png)
+![running docker](3.png)
+![deployed through docker](4.png)
+
 
 # 🚀 Notification Service
 
