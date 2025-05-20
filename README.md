@@ -1,3 +1,5 @@
+![The model is working](1.png)
+
 # 🚀 Notification Service
 
 Welcome to the Notification Service – a modern, extensible solution for user notifications built using **FastAPI**, **MySQL**, and **RabbitMQ**.  
